@@ -20,9 +20,11 @@ func main() {
 	totalPrice := calculateBill(price, no)
 	fmt.Println("Total price is", totalPrice) // 打印到控制台上
 
+	// 多返回值
 	area, perimeter := rectProps(10.8, 5.6)
 	fmt.Printf("Area %f Perimeter %f\n", area, perimeter)
 
+	// 命名返回值
 	area, perimeter = rectProps1(10.8, 5.6)
 	fmt.Printf("Area %f Perimeter %f\n", area, perimeter)
 
