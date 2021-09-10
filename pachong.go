@@ -52,7 +52,6 @@ func main() {
 }
 
 func initPath(path string) {
-	path += "\\"
 	s, err := os.Stat(path)
 	if err != nil {
 		err = os.Mkdir(path, os.ModePerm)
@@ -118,7 +117,7 @@ func getImage(url, filename string) {
 	defer res.Body.Close()
 	// 获得get请求响应的reader对象
 	reader := bufio.NewReader(res.Body)
-	file, err := os.Create(path + filename)
+	file, err := os.Create(path + "\\" + filename)
 	if err != nil {
 		panic(err)
 	}
