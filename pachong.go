@@ -36,19 +36,23 @@ func main() {
 	initPath(path)
 	// 获取列表页
 	hrefs := home()
-	done := make(chan string)
+	done := make(chan string, 30)
 	for _, href := range hrefs {
 		go item(href, done)
 	}
-	count := 0
+	count := 1
+	fmt.Printf("获取: ")
 	for v := range done {
-		count++
-		fmt.Println("[" + v + "]照片获取完")
+		fmt.Printf("[%s], ", v)
+		if count%5 == 0 {
+			fmt.Println()
+		}
 		if count >= 30 {
 			close(done)
-			break
 		}
+		count++
 	}
+	fmt.Println("全部设计师照片获取完成")
 }
 
 func initPath(path string) {
