@@ -64,7 +64,7 @@ func server2(ch chan string) {
 	ch <- "from server2"
 
 }
-func process(ch chan string) {
+func process1(ch chan string) {
 	time.Sleep(10500 * time.Millisecond)
 	ch <- "process successful"
 }
